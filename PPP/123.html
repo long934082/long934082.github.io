@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>高雄美食介紹</title>
     <style>
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -42,9 +57,14 @@
 </head>
 <body>
     <header>
-        <h1>高雄美食介紹</h1>
+        <!-- 將標題設為超連結，並呼叫 goHome() 函式 -->
+        <h1 onclick="goHome()" style="cursor: pointer;">高雄美食介紹</h1>
     </header>
-
+    <section>
+        <input type="text" id="searchInput" placeholder="搜尋美食...">
+        <button onclick="search()">搜尋</button>
+        <p id="searchResult"></p>
+    </section>
     <section>
         <div class="restaurant">
             <h2>鴨肉珍</h2>
@@ -52,6 +72,19 @@
             <p>高雄鴨肉珍就位在鹽埕區的五福四路，店面就在馬路旁邊，周邊有很多路邊停車格，鴨肉珍招牌上寫65年老店，基本上絕對是已經超過65年，一整天都有人排隊用餐，生意真的非常好！有兩間店面，座位區是在右邊的店面還有騎樓，先找座位再點餐</p>
             <p>營業時間：10:00–20:20（週一二公休）</p>
             <img src="img/鴨肉珍1.jpg" alt="美食店1照片" width="300">
+            <div class="review-section">
+                <h3>評價和評論</h3>
+                <select class="rating">
+                    <option value="5">5星</option>
+                    <option value="4">4星</option>
+                    <option value="3">3星</option>
+                    <option value="2">2星</option>
+                    <option value="1">1星</option>
+                </select>
+                <textarea class="comment" placeholder="輸入評論..."></textarea>
+                <button onclick="submitReview(this)">提交評論</button>
+                <div class="user-reviews"></div>
+            </div>
         </div>
 
         <div class="restaurant">
@@ -60,6 +93,19 @@
             <p>地點:807高雄市三民區中華三路265號</p>
             <p>營業時間:16:00–01:00(周二公休)</p>
             <img src="img/楊紀1.jpg" alt="美食店2照片" width="300">
+            <div class="review-section">
+                <h3>評價和評論</h3>
+                <select class="rating">
+                    <option value="5">5星</option>
+                    <option value="4">4星</option>
+                    <option value="3">3星</option>
+                    <option value="2">2星</option>
+                    <option value="1">1星</option>
+                </select>
+                <textarea class="comment" placeholder="輸入評論..."></textarea>
+                <button onclick="submitReview(this)">提交評論</button>
+                <div class="user-reviews"></div>
+            </div>
         </div>
 
         <div class="restaurant">
@@ -69,6 +115,19 @@
             <p>地點:803高雄市鹽埕區大仁路213號</p>
             <p>營業時間:16:30–00:00(周四公休)</p>
             <img src="img/黑乾溫州4.jpg" alt="美食店2照片" width="300">
+            <div class="review-section">
+                <h3>評價和評論</h3>
+                <select class="rating">
+                    <option value="5">5星</option>
+                    <option value="4">4星</option>
+                    <option value="3">3星</option>
+                    <option value="2">2星</option>
+                    <option value="1">1星</option>
+                </select>
+                <textarea class="comment" placeholder="輸入評論..."></textarea>
+                <button onclick="submitReview(this)">提交評論</button>
+                <div class="user-reviews"></div>
+            </div>
         </div>
 
         <div class="restaurant">
@@ -77,6 +136,19 @@
             <p>地點:高雄市鹽埕區新樂街149之1號</p>
             <p>營業時間:15:00-00:00(周日公休)</p>
             <img src="img/呆呆.jpg" alt="美食店2照片" width="300">
+            <div class="review-section">
+                <h3>評價和評論</h3>
+                <select class="rating">
+                    <option value="5">5星</option>
+                    <option value="4">4星</option>
+                    <option value="3">3星</option>
+                    <option value="2">2星</option>
+                    <option value="1">1星</option>
+                </select>
+                <textarea class="comment" placeholder="輸入評論..."></textarea>
+                <button onclick="submitReview(this)">提交評論</button>
+                <div class="user-reviews"></div>
+            </div>
         </div>
 
         <div class="restaurant">
@@ -86,6 +158,19 @@
             <p>地點:高雄市鹽埕區新樂街213-7號</p>
             <p>營業時間:12:00~售完</p>
             <img src="img/李二.jpg" alt="美食店2照片" width="300">
+            <div class="review-section">
+                <h3>評價和評論</h3>
+                <select class="rating">
+                    <option value="5">5星</option>
+                    <option value="4">4星</option>
+                    <option value="3">3星</option>
+                    <option value="2">2星</option>
+                    <option value="1">1星</option>
+                </select>
+                <textarea class="comment" placeholder="輸入評論..."></textarea>
+                <button onclick="submitReview(this)">提交評論</button>
+                <div class="user-reviews"></div>
+            </div>
         </div>
 
         <div class="restaurant">
@@ -95,6 +180,150 @@
             <p>地點:802高雄市苓雅區青年一路167-2號</p>
             <p>營業時間:17:00–00:30(周二公休)</p>
             <img src="img/老店柏弘.jpg" alt="美食店2照片" width="300">
+            <div class="review-section">
+                <h3>評價和評論</h3>
+                <select class="rating">
+                    <option value="5">5星</option>
+                    <option value="4">4星</option>
+                    <option value="3">3星</option>
+                    <option value="2">2星</option>
+                    <option value="1">1星</option>
+                </select>
+                <textarea class="comment" placeholder="輸入評論..."></textarea>
+                <button onclick="submitReview(this)">提交評論</button>
+                <div class="user-reviews"></div>
+            </div>
+        </div>
+
+        <div class="restaurant">
+                <h2>鴨肉和</h2>
+                <p>高雄「鴨肉和」鴨肉飯專賣店、當歸鴨，可是三民區人氣小吃店，每到用餐時間一位難求，店家主打的招牌鴨肉飯(麵,米粉,板條,冬粉)、鴨肉拼盤、當歸鴨系列、鴨下水、鴨米血、豆芽韭菜鴨腸，都大受歡迎，而且價格實在划算又好吃，還有不少在地人外帶鴨肉便當，「鴨肉和」可說是來到高雄必吃的鴨肉飯啊～</p>
+                <P>鴨肉飯算是店裡最多人推薦的料理，鴨肉是碎肉，不用啃骨頭，吃起來還挺過癮的，一旁還搭配有筍絲，增加風味和口感，最吸引的人地方則是米飯淋的鴨油，還算粒粒分明的米飯不會太黏，拌著鴨油一起吃，真的是又油又香。</P>
+                <P>地點:807高雄市三民區建國三路395-1號</P>
+                <P>營業時間:10:30-20:30(每周一休息)</P>
+                <img src="img/鴨肉和.jpg" alt="美食店2照片" width="300">
+                <div class="review-section">
+                    <h3>評價和評論</h3>
+                    <select class="rating">
+                        <option value="5">5星</option>
+                        <option value="4">4星</option>
+                        <option value="3">3星</option>
+                        <option value="2">2星</option>
+                        <option value="1">1星</option>
+                    </select>
+                    <textarea class="comment" placeholder="輸入評論..."></textarea>
+                    <button onclick="submitReview(this)">提交評論</button>
+                    <div class="user-reviews"></div>
+                </div>
+        </div>
     </section>
+    <script>
+        // 存儲主畫面的相對路徑
+        var homePath = "123.html"; // 替換成實際的主畫面路徑
+    function search() {
+    // 取得搜尋關鍵字
+    var keyword = document.getElementById("searchInput").value.trim().toLowerCase();
+
+    // 顯示搜尋結果提示
+    document.getElementById("searchResult").innerText = "搜尋結果: " + keyword;
+
+    // 取得所有美食店區塊的標題
+    var restaurantTitles = document.querySelectorAll(".restaurant h2");
+
+    // 遍歷所有美食店區塊標題，只顯示完全符合搜尋條件的項目
+    restaurantTitles.forEach(function (title) {
+        // 取得標題文字，並轉換為小寫進行比對
+        var titleText = title.textContent.trim().toLowerCase();
+
+        // 檢查標題是否包含搜尋關鍵字
+        if (titleText.includes(keyword)) {
+            title.parentElement.style.display = "block";
+        } else {
+            title.parentElement.style.display = "none";
+        }
+    });
+}
+
+        // 定義回到主畫面的函式
+        function goHome() {
+            // 使用 window.location.href 將網頁重新導向至主畫面的相對路徑
+            window.location.href = homePath;
+        }
+        // 新增評論函數
+function submitReview(button) {
+    var restaurant = button.closest(".restaurant");
+    var rating = restaurant.querySelector(".rating").value;
+    var commentText = restaurant.querySelector(".comment").value;
+
+    // 檢查是否有評分和評論內容
+    if (rating && commentText) {
+        // 創建一個評論元素
+        var reviewElement = document.createElement("div");
+        reviewElement.classList.add("review");
+        reviewElement.innerHTML = "<strong>評分: " + rating + "星</strong><p>" + commentText + "</p>";
+
+        // 將評論元素添加到餐廳區塊中的評論區域
+        restaurant.querySelector(".user-reviews").appendChild(reviewElement);
+
+        // 清除輸入框
+        restaurant.querySelector(".rating").value = "";
+        restaurant.querySelector(".comment").value = "";
+    } else {
+        alert("請輸入評分和評論內容。");
+    }
+}
+    </script>
+    <button class="addButton" onclick="toggleForm()">新增景點</button>
+
+    <!-- 新增景點的表單 -->
+    <form id="addSpotForm">
+        <h2>新增美食</h2>
+        <label for="spotName">餐廳名稱:</label>
+        <input type="text" id="spotName" name="spotName" required>
+    
+        <label for="spotImage">圖片連結:</label>
+        <input type="text" id="spotImage" name="spotImage" required>
+    
+        <label for="spotDescription">美食介紹:</label>
+        <textarea id="spotDescription" name="spotDescription" rows="4" required></textarea>
+    
+        <label for="spotAddress">地址:</label>
+        <input type="text" id="spotAddress" name="spotAddress" required>
+    
+        <label for="spotHours">營業時間:</label>
+        <input type="text" id="spotHours" name="spotHours" required>
+    
+        <button type="button" onclick="addSpot()">新增</button>
+    </form>
+    
+    <script>
+        function toggleForm() {
+            var form = document.getElementById("addSpotForm");
+            form.style.display = form.style.display === "none" ? "block" : "none";
+        }
+    
+        function addSpot() {
+    var name = document.getElementById("spotName").value;
+    var image = document.getElementById("spotImage").value;
+    var description = document.getElementById("spotDescription").value;
+    var address = document.getElementById("spotAddress").value;
+    var hours = document.getElementById("spotHours").value;
+
+    // 使用正確的模板文字語法
+    var newSpotHtml = `
+        <div class="spot">
+            <h2>${name}</h2>
+            <img src="${image}" alt="${name}">
+            <p>${description}</p>
+            <p>地址：${address}</p>
+            <p>營業時間：${hours}</p>
+        </div>
+    `;
+
+    document.body.innerHTML += newSpotHtml;
+    toggleForm();
+}
+
+    </script>
 </body>
 </html>
